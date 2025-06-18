@@ -5,7 +5,6 @@ const {
 	descripcion,
 	imgSrc,
 	skills,
-	repoURL,
 	demoURL,
 	averageBrightness,
 } = Astro.props;
@@ -24,7 +23,7 @@ const {
 
 	<div class="descripcion__container">
 		<h2 class="card__title">{title}</h2>
-		<div class="descripcion">
+		<div class="descripcion bg-black">
 			<p>{descripcion}</p>
 
 			<div class="skills">
@@ -36,16 +35,10 @@ const {
 			</div>
 
 			<div class="buttons">
-				<a href={repoURL}>
-					<span>
-						Github
-						{(<iconify-icon icon="quill:link-out" />)}
-					</span>
-				</a>
 
-				<a href={demoURL}>
+				<a href={demoURL} target="_blank" rel="nofollow noreferrer noopener">
 					<span>
-						Demo
+						Ver Sitio
 						{(<iconify-icon icon="quill:link-out" />)}
 					</span>
 				</a>
