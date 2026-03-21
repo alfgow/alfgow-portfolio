@@ -17,7 +17,7 @@
  */
 export const portafolioData = [
 	{
-		imgSrc: '../../../img/image-inmobiliaria.webp',
+		imgSrc: '/img/image-inmobiliaria.webp',
 		title: 'Bienes raíces',
 		skills: ['NextJS', 'React', 'TypeScript', 'Tailwind', 'Prisma'],
 		descripcion:
@@ -26,7 +26,7 @@ export const portafolioData = [
 		anim: 'fade-right',
 	},
 	{
-		imgSrc: '../../img/image-as.webp',
+		imgSrc: '/img/image-as.webp',
 		title: 'Arrendamiento Seguro',
 		skills: ['PHP', 'JavaScript', 'Tailwind', 'MySQL'],
 		descripcion:
@@ -36,7 +36,7 @@ export const portafolioData = [
 		averageBrightness: 0.1,
 	},
 	{
-		imgSrc: '../../img/imagen-bot-vg.webp',
+		imgSrc: '/img/imagen-bot-vg.webp',
 		title: 'Bot Inmobiliario',
 		skills: ['WhatsApp', 'OpenClaw', 'OpenAI'],
 		descripcion:
@@ -46,7 +46,7 @@ export const portafolioData = [
 		averageBrightness: 0.1,
 	},
 	{
-		imgSrc: '../../img/image-prospectando.webp',
+		imgSrc: '/img/image-prospectando.webp',
 		title: 'Prospectando',
 		skills: ['React', 'Firebase', 'JavaScript'],
 		descripcion:
@@ -56,7 +56,7 @@ export const portafolioData = [
 		averageBrightness: 0.1,
 	},
 	{
-		imgSrc: '../../img/image-lumiere.webp',
+		imgSrc: '/img/image-lumiere.webp',
 		title: 'Velas Lumière',
 		skills: ['Astro', 'Tailwind', 'TypeScript'],
 		descripcion:
@@ -66,7 +66,7 @@ export const portafolioData = [
 		averageBrightness: 0.1,
 	},
 	{
-		imgSrc: '../../img/cv-esquelete.webp',
+		imgSrc: '/img/cv-esquelete.webp',
 		title: 'CV Digital',
 		skills: ['Astro', 'Tailwind'],
 		descripcion:
