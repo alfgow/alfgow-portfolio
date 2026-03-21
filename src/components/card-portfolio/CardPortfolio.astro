@@ -7,6 +7,7 @@ const {
 	skills,
 	demoURL,
 	averageBrightness,
+	imgPosition = 'center 0',
 } = Astro.props;
 ---
 
@@ -19,6 +20,7 @@ const {
 		width={332}
 		loading="lazy"
 		average-brightness={averageBrightness}
+		style={`object-position: ${imgPosition}`}
 	/>
 
 	<div class="descripcion__container">
@@ -35,13 +37,14 @@ const {
 			</div>
 
 			<div class="buttons">
-
-				<a href={demoURL} target="_blank" rel="nofollow noreferrer noopener">
-					<span>
-						Ver Sitio
-						{(<iconify-icon icon="quill:link-out" />)}
-					</span>
-				</a>
+				{demoURL && (
+					<a href={demoURL} target="_blank" rel="nofollow noreferrer noopener">
+						<span>
+							Ver Sitio
+							{(<iconify-icon icon="quill:link-out" />)}
+						</span>
+					</a>
+				)}
 			</div>
 		</div>
 	</div>

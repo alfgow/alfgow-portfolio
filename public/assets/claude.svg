@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="black">
+  <!-- Claude/Anthropic logo: radiating lines from center -->
+  <!-- Center circle -->
+  <circle cx="50" cy="50" r="10"/>
+  <!-- Radiating lines (like sun rays) -->
+  <rect x="46" y="8"  width="8" height="22" rx="4"/>
+  <rect x="46" y="70" width="8" height="22" rx="4"/>
+  <rect x="8"  y="46" width="22" height="8" rx="4"/>
+  <rect x="70" y="46" width="22" height="8" rx="4"/>
+  <!-- Diagonal rays -->
+  <rect x="20" y="16" width="8" height="22" rx="4" transform="rotate(45 24 27)"/>
+  <rect x="64" y="16" width="8" height="22" rx="4" transform="rotate(-45 68 27)"/>
+  <rect x="20" y="62" width="8" height="22" rx="4" transform="rotate(-45 24 73)"/>
+  <rect x="64" y="62" width="8" height="22" rx="4" transform="rotate(45 68 73)"/>
+</svg>

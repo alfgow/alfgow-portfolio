@@ -17,22 +17,52 @@
  */
 export const portafolioData = [
 	{
-		imgSrc: '../../../img/villanuevagarcia.webp',
+		imgSrc: '../../../img/image-inmobiliaria.webp',
 		title: 'Bienes raíces',
-		skills: ['JavaScript', 'CSS', 'Tailwind'],
+		skills: ['NextJS', 'React', 'TypeScript', 'Tailwind', 'Prisma'],
 		descripcion:
-			'Sitio web de Inmobiliaria Villanueva García, realicé Frontend y Backend, actualmente doy mantenimiento y actualización de la web.',
+			'Sitio web de Inmobiliaria Villanueva García. Desarrollado con Next.js 15, React 19, TypeScript y TailwindCSS 4. Incluye mapas interactivos con Leaflet, animaciones con Framer Motion y base de datos gestionada con Prisma. Doy mantenimiento y actualizaciones continuas.',
 		demoURL: 'https://www.villanuevagarcia.com/',
 		anim: 'fade-right',
 	},
 	{
-		imgSrc: '../../img/as.webp',
+		imgSrc: '../../img/image-as.webp',
 		title: 'Arrendamiento Seguro',
-		skills: ['JavaScript', 'CSS'],
+		skills: ['PHP', 'JavaScript', 'Tailwind', 'MySQL'],
 		descripcion:
-			' Sitio web de Arrendamiento Seguro, realicé Frontend y Backend, actualmente doy mantenimiento y actualización de la web.',
+			'Plataforma web para gestión de arrendamientos. Desarrollada con PHP en arquitectura MVC propia, MySQL con PDO, TailwindCSS y JavaScript vanilla. Integra AWS S3 para documentos, Dropzone.js para subida de archivos, SweetAlert2 y autenticación con OTP. Doy mantenimiento y actualizaciones continuas.',
         demoURL: 'https://www.arrendamientoseguro.app/',
 		anim: 'fade-up',
+		averageBrightness: 0.1,
+	},
+	{
+		imgSrc: '../../img/imagen-bot-vg.webp',
+		title: 'Bot Inmobiliario',
+		skills: ['WhatsApp', 'OpenClaw', 'OpenAI'],
+		descripcion:
+			'Bot de WhatsApp 24/7 para Inmobiliaria Villanueva García. Atiende automáticamente a clientes interesados en propiedades, responde consultas y filtra prospectos sin intervención humana.',
+		imgPosition: 'center center',
+		anim: 'fade-up',
+		averageBrightness: 0.1,
+	},
+	{
+		imgSrc: '../../img/image-prospectando.webp',
+		title: 'Prospectando',
+		skills: ['React', 'Firebase', 'JavaScript'],
+		descripcion:
+			'App web para asesores inmobiliarios con mapas interactivos para gestión de prospectos. Desarrollada con React 19 y Vite, Firebase como backend, Leaflet para mapas, y Dexie (IndexedDB) para funcionamiento offline.',
+		demoURL: 'https://www.prospectando.app/',
+		anim: 'fade-left',
+		averageBrightness: 0.1,
+	},
+	{
+		imgSrc: '../../img/image-lumiere.webp',
+		title: 'Velas Lumière',
+		skills: ['Astro', 'Tailwind', 'TypeScript'],
+		descripcion:
+			'Tienda en línea de velas aromáticas. Desarrollada con Astro 5, TailwindCSS y MDX. Incluye búsqueda con Pagefind, blog, RSS y sitemap.',
+		demoURL: 'https://velas-aromaticas.mx/',
+		anim: 'fade-left',
 		averageBrightness: 0.1,
 	},
 	{
@@ -96,6 +126,15 @@ const skillIcons = {
 	StyledComponents: 'skill-icons:styledcomponents',
 	Bootstrap: 'skill-icons:bootstrap',
 	Tailwind: 'skill-icons:tailwindcss-dark',
+	NextJS: 'skill-icons:nextjs-dark',
+	TypeScript: 'skill-icons:typescript',
+	Prisma: 'skill-icons:prisma',
+	PHP: 'skill-icons:php-dark',
+	MySQL: 'skill-icons:mysql-dark',
+	Firebase: 'skill-icons:firebase',
+	WhatsApp: 'logos:whatsapp-icon',
+	OpenClaw: 'noto:lobster',
+	OpenAI: 'simple-icons:openai',
 };
 
 /**

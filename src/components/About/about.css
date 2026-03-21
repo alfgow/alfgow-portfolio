@@ -15,11 +15,10 @@
 }
 
 .about__img {
-	background-color: #0d0045;
+	background-color: var(--primary-0);
 	-webkit-mask-image: radial-gradient(ellipse, #000 53%, #0000 68%);
 	border-radius: 50%;
 	mask-image: radial-gradient(ellipse, #000 53%, #0000 68%);
-	border-radius: 50%;
 	object-fit: cover;
 	width: 39.5rem;
 	height: 48.1rem;
