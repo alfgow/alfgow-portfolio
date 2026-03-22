@@ -9,6 +9,7 @@ export async function getStaticPaths() {
 		props: post,
 	}));
 }
+
 type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
@@ -20,46 +21,144 @@ const { Content } = await post.render();
 </BlogLayout>
 
 <style is:global>
-	p {
-		font-size: 1.8rem;
+	.blog-content {
+		color: white;
 	}
-	p:has(> img) {
+
+	.blog-content p {
+		font-size: 1.8rem;
+		line-height: 1.9;
+		color: rgba(255, 255, 255, 0.86);
+		margin: 0 0 1.8rem;
+	}
+
+	.blog-content h2,
+	.blog-content h3,
+	.blog-content h4,
+	.blog-content h5,
+	.blog-content h6 {
+		color: white;
+		font-weight: 800;
+		line-height: 1.15;
+		margin: 3rem 0 1.2rem;
+	}
+
+	.blog-content h2 {
+		font-size: clamp(2.6rem, 4vw, 3.6rem);
+	}
+
+	.blog-content h3 {
+		font-size: clamp(2.1rem, 3vw, 2.8rem);
+	}
+
+	.blog-content p:has(> img) {
 		display: flex;
 		justify-content: center;
+		margin: 2.4rem 0;
 	}
-	p > img {
-		width: 30%;
-		max-width: 80rem;
-		min-width: 27rem;
-        border-radius: 5rem;
+
+	.blog-content p > img {
+		width: min(100%, 72rem);
+		border-radius: 2.4rem;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.25);
 	}
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
+
+	.blog-content blockquote {
+		margin: 2.6rem 0;
+		padding: 1.8rem 2rem;
+		border-left: 4px solid var(--secondary-60);
+		border-radius: 1.6rem;
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.blog-content blockquote p {
+		margin: 0;
+		font-size: 1.7rem;
+		color: var(--secondary-95);
+	}
+
+	.blog-content ul,
+	.blog-content ol {
+		margin: 1.2rem 0 2rem 2.2rem;
+		padding: 0;
+	}
+
+	.blog-content li {
+		margin: 0.7rem 0;
+		font-size: 1.7rem;
+		line-height: 1.8;
+		color: rgba(255, 255, 255, 0.84);
+	}
+
+	.blog-content strong {
 		color: white;
+	}
+
+	.blog-content table {
+		width: 100%;
+		margin: 2.4rem 0;
+		border-collapse: collapse;
+		overflow: hidden;
+		border-radius: 1.8rem;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.blog-content th,
+	.blog-content td {
+		padding: 1.3rem 1.5rem;
+		text-align: left;
+		font-size: 1.5rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		color: rgba(255, 255, 255, 0.88);
+	}
+
+	.blog-content th {
+		background: rgba(255, 255, 255, 0.06);
 		font-weight: 700;
-		margin: 2rem 0;
+		color: white;
 	}
-	h2 {
-		font-size: var(--text-xx-large);
+
+	.blog-content pre {
+		font-size: 1.5rem;
+		padding: 1.4rem 1.6rem;
+		margin: 2.4rem 0;
+		border-radius: 1.6rem;
+		overflow-x: auto;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.08);
 	}
-	h3 {
-		font-size: var(--text-x-large);
-	}
-	h4 {
-		font-size: var(--text-large);
-	}
-	pre {
-		font-size: 1.8rem;
-		padding: 1rem;
+
+	.blog-content hr {
+		border: 0;
+		height: 1px;
 		margin: 3rem 0;
-		border-radius: 0.5rem;
+		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
 	}
-	@media screen and (max-width:768px){
-		h2{
-			font-size:2rem;
+
+	@media screen and (max-width: 768px) {
+		.blog-content p,
+		.blog-content li {
+			font-size: 1.6rem;
+		}
+
+		.blog-content table,
+		.blog-content thead,
+		.blog-content tbody,
+		.blog-content th,
+		.blog-content td,
+		.blog-content tr {
+			display: block;
+		}
+
+		.blog-content tr {
+			margin-bottom: 1rem;
+		}
+
+		.blog-content th,
+		.blog-content td {
+			padding: 1rem 1.2rem;
 		}
 	}
 </style>

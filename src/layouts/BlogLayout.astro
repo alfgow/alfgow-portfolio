@@ -1,42 +1,214 @@
 ---
-
-import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/header/Header.astro";
-import {  menuBlog } from "../components/data/menuData";
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
-type Props = CollectionEntry<"blog">["data"];
-import "../styles/global.css"
+import { menuBlog } from "../components/data/menuData";
 import Footer from "../components/Footer/Footer.astro";
+import "../styles/global.css";
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const displayDate = updatedDate ?? pubDate;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="../../img/jhon-doe.webp" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="generator" content={Astro.generator} />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
-
-    <title> {title}</title>
+    <title>{title}</title>
   </head>
-  <body>
-    <Header  origin={menuBlog} name="Jhon Doe"/>
-    <main class="w-full flex flex-col justify-center  items-center pt-[13rem]" >
-      <div class="text-center" >
-        <h1 class="text-4xl text-center font-extrabold color__gradiente mb-3" >{title}</h1>
-        <FormattedDate date={pubDate} clase="text-white text-2xl  " />
-      </div>
-      <section class="flex flex-col md:max-w-[57%]  max-w-[100%] min-w-[30rem]  px-5 pt-10 pb-[3rem] justify-center w-[80%">
-        <slot />
-      </section>
+  <body class="blog-body">
+    <Header origin={menuBlog} name="Jhon Doe" />
+    <main class="blog-shell">
+      <article class="blog-card">
+        <header class="blog-hero">
+          <div class="blog-hero__content">
+            <p class="blog-kicker">Blog · AI · Automatización</p>
+            <h1 class="blog-title">{title}</h1>
+            <p class="blog-description">{description}</p>
+
+            <div class="blog-meta">
+              <FormattedDate date={displayDate} clase="blog-meta__date" />
+              <span class="blog-pill">Lectura ligera</span>
+              <span class="blog-pill">Hecho para aplicar</span>
+            </div>
+          </div>
+
+          {heroImage && (
+            <figure class="blog-hero__media">
+              <img src={heroImage} alt={`Portada de ${title}`} loading="eager" />
+              <figcaption>Agentes AI: automatización con criterio.</figcaption>
+            </figure>
+          )}
+        </header>
+
+        <section class="blog-content">
+          <slot />
+        </section>
+      </article>
     </main>
-    <Footer/>
+    <Footer />
   </body>
 </html>
+
+<style>
+  .blog-body {
+    background:
+      radial-gradient(circle at top left, rgba(86, 49, 207, 0.32), transparent 28%),
+      radial-gradient(circle at top right, rgba(220, 88, 152, 0.18), transparent 24%),
+      var(--site-bg);
+  }
+
+  .blog-shell {
+    width: min(100%, 128rem);
+    margin: 0 auto;
+    padding: 10rem 2rem 4rem;
+  }
+
+  .blog-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 3rem;
+    background: rgba(25, 2, 48, 0.7);
+    box-shadow: 0 2.5rem 7rem rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+  }
+
+  .blog-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(88, 249, 255, 0.08), transparent 30%, rgba(223, 68, 231, 0.08));
+    pointer-events: none;
+  }
+
+  .blog-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(28rem, 0.9fr);
+    gap: 3rem;
+    padding: clamp(2.2rem, 4vw, 4.5rem);
+    align-items: center;
+  }
+
+  .blog-kicker {
+    margin: 0 0 1rem;
+    color: var(--secondary-80);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .blog-title {
+    margin: 0;
+    font-size: clamp(3.6rem, 6vw, 6.4rem);
+    line-height: 0.95;
+    color: white;
+  }
+
+  .blog-description {
+    max-width: 62rem;
+    margin: 1.8rem 0 0;
+    font-size: 1.8rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .blog-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.2rem;
+    align-items: center;
+  }
+
+  .blog-meta__date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .blog-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .blog-hero__media {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 2.4rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .blog-hero__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.8rem;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .blog-hero__media figcaption {
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.3rem;
+  }
+
+  .blog-content {
+    width: min(100%, 82rem);
+    margin: 0 auto;
+    padding: 0 clamp(2rem, 4vw, 4.5rem) 4.5rem;
+  }
+
+  @media (max-width: 920px) {
+    .blog-shell {
+      padding-top: 8.5rem;
+    }
+
+    .blog-hero {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-shell {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .blog-card {
+      border-radius: 2rem;
+    }
+
+    .blog-description {
+      font-size: 1.6rem;
+    }
+  }
+</style>
