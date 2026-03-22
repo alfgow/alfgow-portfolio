@@ -2,10 +2,10 @@
 title: 'Agentes AI'
 description: 'Qué son los agentes de inteligencia artificial, cómo funcionan y por qué están cambiando la forma en que construimos software'
 pubDate: 'Mar 21 2026'
-heroImage: 'https://alfgow.s3.mx-central-1.amazonaws.com/blogs-alfgow/agentes-ai.png'
+heroImage: '/img/image-Ai-agents.webp'
 ---
 
-![Agentes AI](https://alfgow.s3.mx-central-1.amazonaws.com/blogs-alfgow/agentes-ai.png)
+![Agentes AI](/img/image-Ai-agents.webp)
 
 ###
 
