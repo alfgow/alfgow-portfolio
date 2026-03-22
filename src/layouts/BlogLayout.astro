@@ -34,7 +34,10 @@ const displayDate = updatedDate ?? pubDate;
             <p class="blog-description">{description}</p>
 
             <div class="blog-meta">
-              <FormattedDate date={displayDate} clase="blog-meta__date" />
+              <span class="blog-pill blog-pill--date">
+                <span aria-hidden="true">📅</span>
+                <FormattedDate date={displayDate} clase="blog-meta__date" />
+              </span>
               <span class="blog-pill">Lectura ligera</span>
               <span class="blog-pill">Hecho para aplicar</span>
             </div>
@@ -130,14 +133,6 @@ const displayDate = updatedDate ?? pubDate;
   }
 
   .blog-meta__date {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 4rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.05);
     font-size: 1.4rem;
     color: white;
     font-weight: 700;
@@ -149,6 +144,8 @@ const displayDate = updatedDate ?? pubDate;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.8rem;
+    min-height: 4rem;
     padding: 0.8rem 1.2rem;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -156,6 +153,12 @@ const displayDate = updatedDate ?? pubDate;
     color: white;
     font-size: 1.3rem;
     font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .blog-pill--date {
+    font-size: 1.4rem;
+    font-weight: 700;
   }
 
   .blog-hero__media {
